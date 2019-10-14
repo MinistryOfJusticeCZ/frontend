@@ -1,0 +1,60 @@
+{% extends 'layouts/base.html' %}
+
+{% block body %}
+
+  <h1 class='govuk-heading-l'>Časová osa</h1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      {{mspTimeline({
+        events: [
+          {
+            title: { text: 'Odpověď odeslána' },
+            description: { text: 'Toto je popis události.' },
+            by: 'Zaměstnanec Státního zastupitelství',
+            dateUtc: '2018-01-25T14:04',
+            date: '25 Leden 2018',
+            time: '14:04',
+            documents: [{
+              name: 'Dokument o dokumentu',
+              href: '#1'
+            }, {
+              name: 'Další dokument document',
+              href: '#2'
+            }]
+          },
+          {
+            title: { text: 'Rozhodnutí označeno jako hotové' },
+            by: 'Tomáš Výhoda',
+            dateUtc: '2017-12-05T09:10',
+            date: '5 Prosinec 2017',
+            time: '9:10'
+          },
+          {
+            title: { html: '<a href="/">Počáteční dokument od Soudce Nováka</a>' },
+            description: { html: '<p class="govuk-body-s govuk-!-margin0-to">Toto je popis, který přesahuje jeden řádek</p> <p class="govuk-body-s">Toto není jednořádkový popis.</p>' },
+            by: 'Administrátor',
+            dateUtc: '2017-11-20T14:27',
+            date: '28 Listopad 2017',
+            time: '14:27',
+            documents: [{
+              name: 'Dokument s informacemi',
+              href: '#3'
+            }]
+          },
+          {
+            title: { text: 'Počáteční dokument od Soudce Nováka' },
+            description: { text: 'Toto je popis, který přesahuje jeden řádek. Toto není jednořádkový popis.' },
+            by: 'Administrátor',
+            dateUtc: '2017-11-20T14:27',
+            date: '20 Listopad 2017',
+            time: '14:27'
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+
+
+
+{% endblock %}

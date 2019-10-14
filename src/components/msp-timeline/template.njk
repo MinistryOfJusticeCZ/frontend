@@ -1,0 +1,42 @@
+
+{% set headingLevel = 2 %}
+{% if params.headingLevel %}
+{% set headingLevel = params.headingLevel %}
+{% endif %}
+
+<div class="msp-timeline {{- ' ' + params.classes if params.classes}}">
+
+  {% for event in params.events %}
+  <div class="msp-timeline__item">
+
+    <div class="msp-timeline__header">
+      <h{{headingLevel}} class="msp-timeline__title">
+        {{ event.title.html | safe if event.title.html else event.title.text }}
+      </h{{headingLevel}}>
+      {% if event.by %}
+        <p class="msp-timeline__by">od {{event.by}}</p>
+      {% endif %}
+    </div>
+
+    <p class="msp-timeline__date"><time datetime="{{event.dateUtc}}">{{event.date}} v {{event.time }}</time></p>
+
+    {% if event.description %}
+      {% if event.description.html %}
+        {{ event.description.html | safe }}
+      {% else %}
+        <p class="msp-timeline__description">{{ event.description.text }}</p>
+      {% endif %}
+    {% endif %}
+
+    {% if event.documents %}
+      <ul class="msp-timeline__documents">
+        {% for document in event.documents %}
+          <li class="msp-timeline__document-item"><a class="msp-timeline__document-link" href="{{document.href}}">{{document.name}}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+  </div>
+  {% endfor %}
+
+</div>

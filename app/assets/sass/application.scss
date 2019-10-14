@@ -1,0 +1,19 @@
+$govuk-global-styles: true;
+
+// GOV.UK Frontend
+@import "node_modules/govuk-frontend/all";
+
+// msp Frontend
+@import "src/all";
+
+
+// App specific
+body {
+  margin: 0;
+  padding: $msp-gutter-half;
+
+  @include mq($from: tablet) {
+    padding: $msp-gutter;
+  }
+
+}

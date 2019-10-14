@@ -1,0 +1,72 @@
+
+
+.msp-search {
+  font-size: 0; // Fallback
+}
+
+.msp-search form {
+  align-items: flex-end;
+  display: flex;
+}
+
+.msp-search .govuk-form-group {
+  display: inline-block;
+  flex: 1;
+  margin-bottom: 0;
+  vertical-align: top;
+}
+
+
+.msp-search__label,
+.msp-search__hint {
+  text-align: left;
+}
+
+
+.msp-search__input:focus {
+  position: relative;
+  z-index: 1;
+}
+
+.msp-search__button {
+  display: inline-block;
+  margin-bottom: 0;
+  margin-left: govuk-spacing(2);
+  position: relative;
+  top: -2px; // Override default gov properties due to active pixel movement
+  vertical-align: bottom;
+  width: auto;
+}
+
+// Modifiers
+.msp-search--ondark {
+  background-color: govuk-colour("black");
+  padding: govuk-spacing(3);
+}
+
+.msp-search--ondark .msp-search__label {
+  color: govuk-colour("white");
+}
+
+.msp-search--ondark .msp-search__hint {
+  color: govuk-colour("grey-2");
+}
+
+.msp-search--ondark .msp-search__input {
+  border-color: govuk-colour("white");
+}
+
+.msp-search--ondark .msp-search__button {
+  box-shadow: 0 2px 0 #00823b;
+  margin-left: 0;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 2px 0 darken(#00823b, 5%);
+  }
+
+  &:active {
+    top: -2px;
+  }
+
+}

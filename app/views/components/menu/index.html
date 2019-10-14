@@ -1,0 +1,66 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+  <h1 class="govuk-heading-l">Menu</h1>
+
+  <h2 class="govuk-heading-m">Varianta 1</h2>
+  {{mspMenu({
+    items: [{
+      text: 'Archivovat',
+      classes: 'msp-button--secondary',
+      href: '/components/banner'
+    }, {
+      text: 'Předat dál',
+      classes: 'msp-button--secondary',
+      href: '/components/buttons'
+    }, {
+      text: 'Smazat',
+      classes: 'msp-button--secondary',
+      href: '#'
+    }]
+  })}}
+  <br><br><br>
+
+  <h2 class="govuk-heading-m">Varianta 2</h2>
+  <div class="variant2">
+    {{mspMenu({
+      items: [{
+        text: 'Udělat rozhodnutí'
+      }, {
+        text: 'Přidat do kalendáře',
+        classes: 'msp-button--secondary'
+      }]
+    })}}
+  </div>
+  <style>
+    .variant2 {
+      float: right;
+    }
+    @media (min-width: 35em) {
+      .variant2 {
+        float: none;
+      }
+    }
+
+  </style>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+    new mspFrontend.Menu({
+      container: $('.msp-menu:first'),
+      mq: '(min-width: 45em)',
+      buttonText: 'Akce'
+    });
+
+    new mspFrontend.Menu({
+      container: $('.msp-menu').eq(1),
+      mq: '(min-width: 35em)',
+      buttonText: 'Další krok...',
+      buttonClasses: 'msp-button--secondary msp-menu__toggle-button--secondary',
+      menuClasses: 'msp-menu__wrapper--right'
+    });
+
+  </script>
+{% endblock %}

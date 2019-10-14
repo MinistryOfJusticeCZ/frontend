@@ -1,0 +1,121 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  {% set inlineSearchHtml %}
+    {{ mspSearch({
+      classes: 'msp-search--ondark msp-search--inline',
+      input: {
+        id: 'search1',
+        name: 'search1'
+      },
+      label: {
+        text: 'Hledat',
+        classes: 'govuk-visually-hidden'
+      },
+      button: {
+        text: 'Hledat'
+      }
+    }) }}
+  {% endset %}
+
+  {% set toggleSearchHtml %}
+    <div class="msp-search-toggle">
+      <div class="msp-search-toggle__toggle"></div>
+      <div class="msp-search-toggle__search">
+        {{ mspSearch({
+          classes: 'msp-search--ondark msp-search--toggle msp-hidden',
+          input: {
+            id: 'search2',
+            name: 'search2'
+          },
+          label: {
+            classes: 'govuk-visually-hidden',
+            text: 'Hledat'
+          },
+          hint: {
+            text: 'Zadejte číslo spisu, například 123456'
+          },
+          button: {
+            text: 'Hledat'
+          }
+        }) }}
+      </div>
+    </div>
+  {% endset %}
+
+  <h1 class="govuk-heading-xl">Primární navigace</h1>
+
+  <h2 class="govuk-heading-m">Pouze navigace</h2>
+
+  {{ mspPrimaryNavigation({
+    label: 'Primární navigace',
+    items: [{
+      text: 'Nav položka 1',
+      href: '#1',
+      active: true
+    }, {
+      text: 'Nav položka 2',
+      href: '#2'
+    }, {
+      text: 'Nav položka 3',
+      href: '#3'
+    }]
+  }) }}
+
+  <br><br>
+
+  <h2 class="govuk-heading-m">S inline vyhledávačem</h2>
+
+  {{ mspPrimaryNavigation({
+    label: 'Primární navigace',
+    items: [{
+      text: 'Nav položka 1',
+      href: '#1',
+      active: true
+    }, {
+      text: 'Nav položka 2',
+      href: '#2'
+    }, {
+      text: 'Nav položka 3',
+      href: '#3'
+    }],
+    searchHtml: inlineSearchHtml
+  }) }}
+
+  <br><br>
+
+  <h2 class="govuk-heading-m">S přepínačem vyhledávání</h2>
+
+  {{ mspPrimaryNavigation({
+    label: 'Primární navigace',
+    items: [{
+      text: 'Nav položka 1',
+      href: '#1',
+      active: true
+    }, {
+      text: 'Nav položka 2',
+      href: '#2'
+    }, {
+      text: 'Nav položka 3',
+      href: '#3'
+    }],
+    searchHtml: toggleSearchHtml
+  }) }}
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+    new mspFrontend.SearchToggleButton({
+      toggleButton: {
+        container: $('.msp-search-toggle__toggle'),
+        text: 'Hledat spis'
+      },
+      search: {
+        container: $('.msp-search').last()
+      }
+
+    })
+  </script>
+{% endblock %}

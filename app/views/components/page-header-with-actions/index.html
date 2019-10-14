@@ -1,0 +1,55 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Titulek stránky s akcemi</h1>
+
+
+  <h2 class="govuk-heading-m">Příklad 1</h2>
+
+  {{ mspPageHeaderWithActions({
+    title: { html: '<h1 class="govuk-heading-xl">Vaše spisy</h1>' },
+    items: [
+      {
+        text: 'Obdržet nový spis'
+      }
+    ]
+  }) }}
+
+
+  <br><br>
+
+
+  <h2 class="govuk-heading-m">Příklad 2</h2>
+
+  {{ mspPageHeaderWithActions({
+    title: { html: '<h1 class="govuk-heading-xl">Spis</h1>' },
+    items: [
+      {
+        classes: 'msp-button--secondary',
+        text: 'Nahrát novou věc'
+      }
+    ]
+  }) }}
+
+
+  <br><br>
+
+
+  <h2 class="govuk-heading-m">Příklad 3</h2>
+
+  {{ mspPageHeaderWithActions({
+    title: { html: '<h1 class="govuk-heading-xl">Titulek stránky</h1>' },
+    items: [
+      {
+        text: 'Akce 1'
+      },
+      {
+        classes: 'msp-button--secondary',
+        text: 'Akce 2'
+      }
+    ]
+  }) }}
+
+
+{% endblock %}

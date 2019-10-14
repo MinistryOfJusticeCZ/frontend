@@ -1,0 +1,102 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+
+      <h1 class="govuk-heading-l">Setříditelná tabulka</h1>
+
+      {{ govukTable({
+        head: [
+          {
+            text: "Jméno",
+            attributes: {
+              "aria-sort": "vzestupný"
+            }
+          },
+          {
+            text: "Datum",
+            attributes: {
+              "aria-sort": "není"
+            }
+          },
+          {
+            text: "Částka",
+            attributes: {
+              "aria-sort": "není"
+            },
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Adam Novák"
+            },
+            {
+              text: "19 Září 2019",
+              attributes: {
+                "data-sort-value": "1568847600000"
+              }
+            },
+            {
+              text: "59Kč",
+              format: "numeric",
+              attributes: {
+                "data-sort-value": "59"
+              }
+            }
+          ],
+          [
+            {
+              text: "Jan Srstka"
+            },
+            {
+              text: "18 Leden 2018",
+              attributes: {
+                "data-sort-value": "1516233600000"
+              }
+            },
+            {
+              text: "45Kč",
+              format: "numeric",
+              attributes: {
+                "data-sort-value": "45"
+              }
+            }
+          ],
+          [
+            {
+              text: "Jana Beranová"
+            },
+            {
+              text: "1 Listopad 2001",
+              attributes: {
+                "data-sort-value": "1004572800000"
+              }
+            },
+            {
+              text: "2000Kč",
+              format: "numeric",
+              attributes: {
+                "data-sort-value": "2000"
+              }
+            }
+          ]
+        ]
+      }) }}
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+    new mspFrontend.SortableTable({
+      table: $('table')[0]
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,18 @@
+{%- from "msp-menu/macro.njk" import mspMenu %}
+
+<div class="msp-page-heading {{- ' ' + params.classes if params.classes}}">
+
+  <div class="msp-page-heading__title">
+    {{ params.title.html | safe }}
+  </div>
+
+  {% if params.items %}
+    <div class="msp-page-heading__actions">
+      {{mspMenu({
+        buttonClasses: 'msp-page-heading__action',
+        items: params.items
+      })}}
+    </div>
+  {% endif %}
+
+</div>

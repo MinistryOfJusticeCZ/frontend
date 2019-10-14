@@ -1,0 +1,64 @@
+/* ==========================================================================
+   #FOOTER
+   ========================================================================== */
+
+.msp-footer {
+  background-color: govuk-colour("grey-3");
+  border-top: 1px solid $msp-border-color;
+  padding-top: govuk-spacing(7);
+  padding-bottom: govuk-spacing(7);
+}
+
+
+.msp-footer__container {
+  @include msp-width-container;
+}
+
+
+.msp-footer__heading {
+  @include govuk-font($size: 19, $weight: bold);
+  margin-bottom: govuk-spacing(2);
+  margin-top: 0;
+}
+
+.msp-footer__list {
+  @include govuk-font($size: 16);
+  color: $msp-secondary-text-color;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.msp-footer__list-item {
+  margin-bottom: govuk-spacing(1);
+}
+
+
+.msp-footer__link {
+
+  &:link,
+  &:visited {
+    color: $msp-secondary-link-color;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $msp-secondary-link-hover-color;
+  }
+
+}
+
+
+/* Style variants
+  ========================================================================== */
+
+.msp-footer__list--inline {
+
+  .msp-footer__list-item {
+    display: inline;
+    margin-right: govuk-spacing(3);
+  }
+
+}

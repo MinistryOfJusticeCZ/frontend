@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Footer</h1>
+
+  {{ mspFooter({
+
+    help: {
+      heading: 'Pomoc',
+      email: {
+        address: '#',
+        text: 'helpdesk@msp.justice.cz'
+      },
+      phone: {
+        text: '777 777 777'
+      },
+      opening: {
+        text: 'Pondělí až Pátek, 8:00 do 18:00 (mimo státních svátek)'
+      }
+    },
+
+    navigation: {
+      items: [{
+        text: 'Cookies',
+        href: '#'
+      }, {
+        text: 'Ochrana osobních údajů',
+        href: '#'
+      }]
+    }
+
+  }) }}
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+
+      <h1 class="govuk-heading-l">Přidat další</h1>
+
+      <div class="msp-add-another">
+
+        <h1 class="msp-add-another__heading  govuk-heading-xl" tabindex="-1">Vytvořit otázky</h1>
+
+        <form method="post" action="/app/cases/{{_case.id}}/questions/new">
+
+          {% call govukFieldset({
+            classes: 'msp-add-another__item',
+            legend: {
+              text: 'Otázka',
+              classes: 'msp-add-another__title  govuk-fieldset__legend--m',
+              isPageHeading: false
+            }
+          }) %}
+
+          {{ govukInput({
+            label: {
+              html: 'Předmět'
+            },
+            id: 'questions[0][subject]',
+            name: 'questions[0][subject]',
+            attributes: {
+              'data-name': 'questions[%index%][subject]',
+              'data-id': 'questions[%index%][subject]'
+            }
+          }) }}
+
+          {{ govukTextarea({
+            name: 'questions[0][question]',
+            id: 'questions[0][question]',
+            attributes: {
+              'data-name': 'questions[%index%][question]',
+              'data-id': 'questions[%index%][question]'
+            },
+            label: {
+              html: 'Otázka'
+            }
+          }) }}
+
+          {% endcall %}
+
+          <div class="msp-button-action">
+            {{ govukButton({
+              text: 'Přidat další otázku',
+              classes: 'msp-button--secondary  msp-add-another__add-button  govuk-!-margin-bottom-4'
+            }) }}
+          </div>
+
+          <div class="msp-button-action">
+            {{ govukButton({
+              text: 'Odeslat'
+            }) }}
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+
+  <script>
+    new mspFrontend.AddAnother($('.msp-add-another'));
+  </script>
+
+{% endblock %}

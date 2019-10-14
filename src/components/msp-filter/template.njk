@@ -1,0 +1,60 @@
+{% from "button/macro.njk" import govukButton %}
+
+<div class="msp-filter">
+
+  <div class="msp-filter__header">
+
+    <div class="msp-filter__header-title">
+      <h2 class="govuk-heading-m">{{ params.heading.html | safe if params.heading.html else params.heading.text }}</h2>
+    </div>
+
+    <div class="msp-filter__header-action">
+      {# <button class="msp-filter__close" type="button">Zavřít</button> #}
+    </div>
+
+  </div>
+
+  <div class="msp-filter__content">
+
+    {% if params.selectedFilters %}
+
+      <div class="msp-filter__selected">
+
+        <div class="msp-filter__selected-heading">
+
+          <div class="msp-filter__heading-title">
+            <h2 class="govuk-heading-m">{{ params.selectedFilters.heading.html | safe if params.selectedFilters.heading.html else params.selectedFilters.heading.text }}</h2>
+          </div>
+
+          <div class="msp-filter__heading-action">
+            <p><a class="govuk-link govuk-link--no-visited-state" href="{{params.selectedFilters.clearLink.href}}">{{params.selectedFilters.clearLink.text}}</a></p>
+          </div>
+
+        </div>
+
+        {% for category in params.selectedFilters.categories %}
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ category.heading.html | safe if category.heading.html else category.heading.text }}</h3>
+
+          <ul class="msp-filter-tags">
+            {% for item in category.items %}
+              <li><a class="msp-filter__tag" href="{{item.href}}"><span class="govuk-visually-hidden">Smazat tento filtr</span> {{item.text}}</a></li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+    <div class="msp-filter__options">
+
+      {{ govukButton({
+        text: 'Použít filtry'
+      }) }}
+
+      {{params.optionsHtml | safe}}
+
+    </div>
+
+  </div>
+
+</div>

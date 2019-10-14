@@ -1,0 +1,158 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+
+      <div tabindex="-1" role="group" id="errorSummary" class="govuk-error-summary msp-hidden" aria-labelledby="error-summary-title" data-module="error-summary">
+
+      </div>
+
+      <h1 class="govuk-heading-l">Validátor formuláře (client-side)</h1>
+
+      <form novalidate>
+        {{ govukInput({
+          label: {
+            text: "E-mail",
+            classes: 'govuk-label--m'
+          },
+          id: "email",
+          name: "email"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Heslo",
+            classes: 'govuk-label--m'
+          },
+          id: "password",
+          name: "password"
+        }) }}
+
+        {{ govukRadios({
+          idPrefix: "location",
+          name: "location",
+
+          fieldset: {
+            legend: {
+              text: "Kde žijete?",
+              classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          items: [
+            {
+              id: 'location',
+              value: "brno",
+              text: "Brno"
+            },
+            {
+              value: "praha",
+              text: "Praha"
+            },
+            {
+              value: "teplice",
+              text: "Teplice"
+            },
+            {
+              value: "olomouc",
+              text: "Olomouc"
+            }
+          ]
+        }) }}
+
+        {{ govukDateInput({
+          id: "dob",
+          namePrefix: "dob",
+          fieldset: {
+            legend: {
+              text: "Kdy jste se narodili?",
+              classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          hint: {
+            text: "Například, 31 3 1980"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Uložit a pokračovat"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+
+  <script>
+    var validator = new mspFrontend.FormValidator(document.forms[0]);
+    validator.addValidator('email', [{
+      method: function(field) {
+          return field.value.trim().length > 0;
+      },
+      message: 'Napište vaši e-mailovou adresu.'
+    },{
+      method: function(field) {
+          return (field.value.indexOf('@') > -1);
+        },
+      message: 'Do e-mailové adresy musíte vložit "@" (zavináč).'
+    }]);
+    validator.addValidator('password', [{
+      method: function(field) {
+          return field.value.trim().length > 0;
+      },
+      message: 'Napište vaši heslo.'
+    }, {
+      method: function(field) {
+          return field.value.length > 8;
+      },
+      message: 'Vaše heslo musí obsahovat alespoň 8 znaků.'
+    }, {
+      method: function(field) {
+        return /\d/.test(field.value);
+      },
+      message: 'Vaše heslo musí obsahovat alespoň jedno číslo.'
+    }]);
+    validator.addValidator('location', [{
+      method: function(field) {
+        return field.value.trim().length > 0;
+      },
+      message: 'Vyberte, kde žijete.'
+    }]);
+    validator.addValidator('dob-day', [{
+      method: function(field, params) {
+        if(params.day.value.length === 0 && params.month.value.length === 0 && params.year.value.length === 0) {
+          return false;
+        } else {
+          return true;
+        }
+      },
+      message: 'Napište datum narození.',
+      params: {
+        day: document.getElementById('dob-day'),
+        month: document.getElementById('dob-month'),
+        year: document.getElementById('dob-year')
+      }
+    }, {
+      method: function(field, params) {
+        if(params.month.value.trim().length === 0) {
+          return "dob-month";
+        }
+        if(params.year.value.trim().length === 0) {
+          return "dob-year";
+        }
+        var d = new Date(parseInt(params.year.value, 10), parseInt(params.month.value, 10)-1, parseInt(params.day.value, 10)-1);
+        return d instanceof Date && !isNaN(d);
+      },
+      message: 'Napište datum narození správně.',
+      params: {
+        day: document.getElementById('dob-day'),
+        month: document.getElementById('dob-month'),
+        year: document.getElementById('dob-year')
+      }
+    }]);
+  </script>
+
+{% endblock %}

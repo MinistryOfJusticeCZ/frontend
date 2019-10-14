@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Lišta s identitami</h1>
+
+
+  <h2 class="govuk-heading-m">Standardní</h2>
+
+  {{ mspIdentityBar({
+    title: { html: '<b>Jan Novák</b> a <b>Jana Nováková</b> (Rozvod)' }
+  }) }}
+
+  <br><br>
+
+  <h2 class="govuk-heading-m">S akcemi</h2>
+
+  {{ mspIdentityBar({
+    title: {
+      html: '<b>Jan Novák</b> a <b>Jana Nováková</b> a <a href="#">4 další</a> (Finanční vyrovnání)'
+    },
+    menus: [{
+      items: [{
+        text: 'Udělej tohle',
+        href: "#"
+      }, {
+        text: 'Udělej tamto',
+        href: "#",
+        classes: 'msp-button--secondary'
+      }]
+    }]
+  }) }}
+
+  <br><br>
+
+  <h2 class="govuk-heading-m">S dalšími akcemi</h2>
+
+  {{ mspIdentityBar({
+    title: { html: '<b>Jan Novák</b> a <b>Jana Nováková</b> a <a href="#">4 další</a> (Financial vyrovnání)' },
+    menus: [{
+      classes: 'test',
+      items: [{
+        text: 'Udělat rozhodnutí'
+      }]
+    }, {
+      items: [{
+        text: 'Udělej tohle',
+        classes: 'msp-button--secondary',
+        href: "#"
+      }, {
+        text: 'Udělej tamto',
+        classes: 'msp-button--secondary',
+        href: "#"
+      }]
+    }]
+  }) }}
+
+{% endblock %}
+
+
+{% block pageScripts %}
+  <script>
+    new mspFrontend.Menu({
+      container: $('.msp-menu').eq(2),
+      mq: '(min-width: 1000em)',
+      buttonText: 'Více akcí',
+      buttonClasses: 'msp-button--secondary msp-menu__toggle-button--secondary',
+      menuClasses: 'msp-menu__wrapper--right'
+    });
+
+  </script>
+{% endblock %}

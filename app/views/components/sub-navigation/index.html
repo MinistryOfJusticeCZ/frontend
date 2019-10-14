@@ -1,0 +1,22 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Druhá navigace</h1>
+
+  {{ mspSubNavigation({
+    label: 'Druhotná navigace',
+    items: [{
+      text: 'Nav položka 1',
+      href: '#1',
+      active: true
+    }, {
+      text: 'Nav položka 2',
+      href: '#2'
+    }, {
+      text: 'Nav položka 3',
+      href: '#3'
+    }]
+  }) }}
+
+{% endblock %}

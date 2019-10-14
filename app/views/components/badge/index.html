@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Odznak</h1>
+
+  {{ mspBadge({
+    text: 'Defaultní modrý odznak'
+  }) }}
+
+  <br><br>
+
+  {{ mspBadge({
+    classes: 'msp-badge--red',
+    text: 'Červený odznak'
+  }) }}
+
+  <br><br>
+
+  {{ mspBadge({
+    classes: 'msp-badge--green',
+    text: 'Zelený odznak'
+  }) }}
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Vyhledávač</h1>
+
+  {{ mspSearch({
+    classes: 'msp-search--ondark',
+    input: {
+      id: 'adam',
+      name: 'adam'
+    },
+    label: {
+      text: 'Název pole přijde sem'
+    },
+    hint: {
+      text: 'Nápověda přijde sem'
+    },
+    button: {
+      text: 'Vyhledat spis'
+    }
+  }) }}
+
+  <br><br>
+
+  {{ mspSearch({
+    classes: 'msp-search--ondark',
+    input: {
+      id: 'trevor',
+      name: 'trevor'
+    },
+    label: {
+      text: 'Název pole přijde sem',
+      classes: 'govuk-visually-hidden'
+    },
+    button: {
+      text: 'Vyhledat spis'
+    }
+  }) }}
+
+  <br><br>
+
+  {{ mspSearch({
+    input: {
+      id: 'bill',
+      name: 'bill'
+    },
+    label: {
+      text: 'Název pole přijde sem'
+    },
+    hint: {
+      text: 'Nápověda přijde sem'
+    },
+    button: {
+      text: 'Vyhledat spis'
+    }
+  }) }}
+
+{% endblock %}

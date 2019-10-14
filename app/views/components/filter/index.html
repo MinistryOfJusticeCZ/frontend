@@ -1,0 +1,133 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Filtr</h1>
+
+  {% set filterOptionsHtml %}
+
+    {{ govukCheckboxes({
+      idPrefix: 'categories',
+      name: 'categories',
+      classes: "govuk-checkboxes--small",
+      fieldset: {
+        legend: {
+          html: 'Kategorie',
+          classes: 'msp-filter__legend govuk-fieldset__legend--m'
+        }
+      },
+      items: [
+        {
+          value: 'documents',
+          text: 'Dokumenty (18)',
+          checked: true
+        },
+        {
+          value: 'hearings',
+          text: 'Slyšení (5)',
+          checked: true
+        },
+        {
+          value: 'Decisions',
+          text: 'Rozhodnutí (2)'
+        }
+      ]
+    }) }}
+
+    {{ govukCheckboxes({
+      idPrefix: 'typeofperson',
+      name: 'typeofperson',
+      classes: "govuk-checkboxes--small",
+      fieldset: {
+        legend: {
+          html: 'Typ osoby',
+          classes: 'msp-filter__legend govuk-fieldset__legend--m'
+        }
+      },
+      items: [
+        {
+          value: 'judge',
+          text: 'Soudce'
+        },
+        {
+          value: 'court-administrator',
+          text: 'Administrátor soudu'
+        },
+        {
+          value: 'legal-adviser',
+          text: 'Advokát',
+          checked: true
+        },
+        {
+          value: 'sz',
+          text: 'Státní zástupce',
+          checked: true
+        },
+        {
+          value: 'applicant',
+          text: 'Podavatel',
+          checked: true
+        },
+        {
+          value: 'respondent',
+          text: 'Respondent'
+        }
+      ]
+    }) }}
+
+  {% endset %}
+
+  {{ mspFilter({
+    heading: {
+      text: 'Filtr'
+    },
+    selectedFilters: {
+
+      heading: {
+        text: 'Vybrané filtry'
+      },
+
+      clearLink: {
+        text: 'Smazat vybrané filtry'
+      },
+
+      categories: [
+        {
+          heading: {
+            text: 'Kategorie'
+          },
+          items: [{
+            href: '/path/to/remove/this',
+            text: 'Dokumenty'
+          }, {
+            href: '/path/to/remove/this',
+            text: 'Slyšení'
+          }]
+        },
+        {
+          heading: {
+            text: 'Typ osoby'
+          },
+          items: [{
+            href: '/path/to/remove/this',
+            text: 'Advokát'
+          },
+          {
+            href: '/path/to/remove/this',
+            text: 'Soudce'
+          },
+          {
+            href: '/path/to/remove/this',
+            text: 'Podavatel'
+          },
+          {
+            href: '/path/to/remove/this',
+            text: 'Respondent'
+          }]
+        }
+      ]
+    },
+    optionsHtml: filterOptionsHtml
+  }) }}
+
+{% endblock %}

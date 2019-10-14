@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Tlačítka</h1>
+
+  <h2 class="govuk-heading-m">Druhotná tlačítka</h2>
+
+  {{ govukButton({
+    text: 'Druhotné tlačítko',
+    classes: 'msp-button--secondary'
+  }) }}
+
+{% endblock %}

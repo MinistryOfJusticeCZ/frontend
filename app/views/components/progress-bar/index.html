@@ -1,0 +1,29 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Ukazatel průběhu</h1>
+
+  {{ mspProgressBar({
+    items: [{
+      label: {
+        text: 'Splňujete podmínky'
+      },
+      complete: true
+    }, {
+      label: {
+        text: 'Váš manžel/manželka odpověděla'
+      },
+      active: true
+    }, {
+      label: {
+        text: 'Soud rozhodne'
+      }
+    }, {
+      label: {
+        text: 'Rozvod finalizován'
+      }
+    }]
+  }) }}
+
+{% endblock %}

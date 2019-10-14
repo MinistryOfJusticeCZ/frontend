@@ -1,0 +1,128 @@
+.msp-pagination {
+  // text-align: center;
+
+  @include mq($from: desktop) {
+
+    // Alignment adjustments
+    margin-left: - govuk-spacing(1);
+    margin-right: - govuk-spacing(1);
+
+    // Hide whitespace between elements
+    font-size: 0;
+
+    // Trick to remove the need for floats
+    text-align: justify;
+
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
+}
+
+
+.msp-pagination__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include mq($from: desktop) {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+}
+
+
+.msp-pagination__results {
+  @include mq($from: desktop) {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+}
+
+
+.msp-pagination__item {
+  @include govuk-font(19);
+  display: inline-block;
+}
+
+
+.msp-pagination__item--active,
+.msp-pagination__item--dots {
+  font-weight: bold;
+  height: 25px;
+  padding: govuk-spacing(1) govuk-spacing(2);
+  text-align: center;
+}
+
+
+.msp-pagination__item--dots {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+.msp-pagination__item--prev .msp-pagination__link,
+.msp-pagination__item--next .msp-pagination__link {
+  &:before,
+  &:after {
+    background-image: url(#{$msp-images-path}icon-pagination.svg);
+    background-repeat: no-repeat;
+    background-size: 22px 36px;
+    background-position: 0 0;
+    display: inline-block;
+    height: 18px;
+    vertical-align: middle;
+    position: relative; top: -1px;
+    width: 11px;
+  }
+}
+
+
+.msp-pagination__item--prev .msp-pagination__link {
+  &:before {
+    background-position: 0 0;
+    content: "";
+    margin-right: govuk-spacing(2);
+  }
+}
+
+
+.msp-pagination__item--next .msp-pagination__link {
+  &:after {
+    background-position: -11px -18px;
+    content: "";
+    margin-left: govuk-spacing(2);
+  }
+}
+
+
+.msp-pagination__link {
+  display: block;
+  padding: govuk-spacing(1);
+  text-align: center;
+  text-decoration: none;
+  min-width: 25px;
+
+  &:link,
+  &:visited {
+    color: govuk-colour("blue");
+  }
+
+  &:hover {
+    color: govuk-colour("light-blue");
+   }
+
+  &:focus {
+    color: govuk-colour("black");
+  }
+
+}
+
+
+.msp-pagination__results {
+  padding: govuk-spacing(1);
+}

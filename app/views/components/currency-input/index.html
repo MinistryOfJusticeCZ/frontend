@@ -1,0 +1,62 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+  <h1 class="govuk-heading-l">Vstupní pole pro měnu</h1>
+
+  {{mspCurrencyInput({
+    classes: 'adam silver',
+    id: 'input1',
+    name: 'input1',
+    label: {
+      classes: 'govuk-label--m',
+      html: 'Kolik dlužíte?'
+    },
+    hint: {
+      text: 'Například, 40.99 Kč'
+    }
+  })}}
+
+  {{mspCurrencyInput({
+    classes: 'msp-currency-input__input--right-aligned',
+    id: 'input2',
+    name: 'input2',
+    label: {
+      classes: 'govuk-label--m',
+      html: 'Kolik dlužíte?'
+    }
+  })}}
+
+  {{mspCurrencyInput({
+    id: 'input3',
+    name: 'input3',
+    currencySymbol: '$',
+    visuallyHiddenCurrencyText: 'v dolarech',
+    label: {
+      classes: 'govuk-label--m',
+      html: 'Kolik dlužíte?'
+    }
+  })}}
+
+  {{mspCurrencyInput({
+    id: 'input4',
+    name: 'input4',
+    currencySymbol: '€',
+    visuallyHiddenCurrencyText: 'v eurech',
+    label: {
+      classes: 'govuk-label--m',
+      html: 'Kolik dlužíte?'
+    }
+  })}}
+
+  {{mspCurrencyInput({
+    id: 'input5',
+    name: 'input5',
+    currencySymbol: '￡',
+    visuallyHiddenCurrencyText: 'v librách',
+    label: {
+      classes: 'govuk-label--m',
+      html: 'Kolik dlužíte?'
+    }
+  })}}
+
+{% endblock %}

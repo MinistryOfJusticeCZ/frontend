@@ -1,0 +1,150 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-xl">Stránkování</h1>
+
+  {{mspPagination({
+    results: {
+      from: 10,
+      to: 20,
+      count: 256
+    },
+
+    previous: {
+      text: 'Předchozí',
+      href: ''
+    },
+    next: {
+      text: 'Další',
+      href: ''
+    },
+    items: [{
+      text: '1',
+      href: '/page=1'
+    }, {
+      type: 'dots'
+    }, {
+      text: '5',
+      href: '/page=5'
+    }, {
+      text: '6',
+      href: '/page=6',
+      selected: true
+    }, {
+      text: '7',
+      href: '/page=7'
+    }, {
+      type: 'dots'
+    }, {
+      text: '10',
+      href: '/page=10'
+    }]
+  })}}
+
+  <br>
+  <br>
+
+  {{mspPagination({
+    previous: {
+      text: 'Přechozí',
+      href: ''
+    },
+    next: {
+      text: 'Další',
+      href: ''
+    }
+  })}}
+
+  <br>
+  <br>
+
+  {{mspPagination({
+    results: {
+      from: 10,
+      to: 20,
+      count: 256
+    },
+
+    previous: {
+      text: 'Předchozí',
+      href: ''
+    },
+    items: [{
+      text: '1',
+      href: '/page=1'
+    }, {
+      text: '2',
+      href: '/page=5'
+    }, {
+      text: '3',
+      href: '/page=6',
+      selected: true
+    }]
+  })}}
+
+  <br>
+  <br>
+
+  {{mspPagination({
+    results: {
+      from: 10,
+      to: 20,
+      count: 256
+    },
+
+    next: {
+      text: 'Next',
+      href: ''
+    },
+
+    items: [{
+      text: '1',
+      href: '/page=1',
+      selected: true
+    }, {
+      text: '2',
+      href: '/page=5'
+    }, {
+      text: '3',
+      href: '/page=6'
+    }]
+  })}}
+
+
+  <br>
+  <br>
+
+  {{mspPagination({
+    results: {
+      from: 10,
+      to: 20,
+      count: 256
+    },
+
+    previous: {
+      text: 'Předchozí',
+      href: ''
+    },
+
+    next: {
+      text: 'Další',
+      href: ''
+    },
+
+    items: [{
+      text: '1',
+      href: '/page=1'
+    }, {
+      text: '2',
+      href: '/page=5',
+      selected: true
+    }, {
+      text: '3',
+      href: '/page=6'
+    }]
+  })}}
+
+
+{% endblock %}
+

@@ -1,0 +1,38 @@
+{
+  "name": "@ministryofjusticecz/frontend",
+  "description": "Ministerstvo spravedlnosti Frontend",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "build:package": "node bin/check-nvmrc.js && gulp build:package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ministryofjusticecz/frontend.git"
+  },
+  "author": "jh,eo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ministryofjusticecz/frontend/issues"
+  },
+  "homepage": "https://github.com/ministryofjusticecz/frontend#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "govuk-frontend": "^2.10.0",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^0.4.6",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sass": "^4.0.1",
+    "moment": "^2.22.2",
+    "nunjucks": "^3.1.3",
+    "require-dir": "^1.0.0",
+    "run-sequence": "^2.2.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

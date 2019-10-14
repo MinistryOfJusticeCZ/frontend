@@ -1,0 +1,28 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Hlavička</h1>
+
+  {{ mspHeader({
+
+    service: {
+      name: 'Název služby',
+      url: '#'
+    },
+
+    navigation: {
+      label: 'Navigace účtem',
+      items: [{
+        text: 'Položka navigace 1',
+        href: '#1',
+        active: true
+      }, {
+        text: 'Položka navigace 2',
+        href: '#2'
+      }]
+    }
+
+  }) }}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+<nav class="msp-pagination {{- ' ' + params.classes if params.classes}}" id="pagination-label">
+
+  <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Navigace stránkování</p>
+
+  <ul class="msp-pagination__list">
+    {% if params.previous %}
+      <li class="msp-pagination__item  msp-pagination__item--prev">
+        <a class="msp-pagination__link" href="{{params.previous.href}}">{{params.previous.text}}<span class="govuk-visually-hidden"> sada stránek</span></a>
+      </li>
+    {% endif %}
+
+    {% for item in params.items %}
+      {% if item.type == 'dots' %}
+        <li class="msp-pagination__item msp-pagination__item--dots">…</li>
+      {% else %}
+        {% if item.selected %}
+          <li class="msp-pagination__item msp-pagination__item--active">{{item.text}}</li>
+        {% else %}
+          <li class="msp-pagination__item"><a class="msp-pagination__link" href="{{item.href}}">{{item.text}}</a></li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if params.next %}
+      <li class="msp-pagination__item  msp-pagination__item--next">
+        <a class="msp-pagination__link" href="{{params.next.href}}">{{params.next.text}}<span class="govuk-visually-hidden"> sada stránek</span></a>
+      </li>
+    {% endif %}
+  </ul>
+
+  {% if params.results %}
+    <p class="msp-pagination__results">Zobrazeno <b>{{params.results.from}}</b> až <b>{{params.results.to}}</b> z <b>{{params.results.count}}</b> výsledků</p>
+  {% endif %}
+
+</nav>

@@ -1,0 +1,36 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+  <h1 class="govuk-heading-l">Filtr přepínač toggle button</h1>
+
+  <div class="toggle-button-container"></div>
+  <div class="filter-container">
+    <div class="close-button-container"></div>
+    Filtry by přišly sem
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+
+  <script>
+    new mspFrontend.FilterToggleButton({
+      bigModeMediaQuery: '(min-width: 48.063em)',
+      startHidden: true,
+      toggleButton: {
+        container: $('.toggle-button-container'),
+        showText: 'Zobrazit filtr',
+        hideText: 'Zavřít filtr',
+        classes: 'msp-button--secondary'
+      },
+      closeButton: {
+        container: $('.close-button-container'),
+        text: 'Zavřít'
+      },
+      filter: {
+        container: $('.filter-container')
+      }
+    });
+  </script>
+
+{% endblock %}

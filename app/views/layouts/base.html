@@ -1,0 +1,74 @@
+{%- block top_of_page %}{% endblock %}
+{%- from "back-link/macro.njk" import govukBackLink %}
+{%- from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{%- from "button/macro.njk" import govukButton %}
+{%- from "date-input/macro.njk" import govukDateInput %}
+{%- from "details/macro.njk" import govukDetails %}
+{%- from "error-message/macro.njk" import govukErrorMessage %}
+{%- from "error-summary/macro.njk" import govukErrorSummary %}
+{%- from "fieldset/macro.njk" import govukFieldset %}
+{%- from "file-upload/macro.njk" import govukFileUpload %}
+{%- from "input/macro.njk" import govukInput %}
+{%- from "label/macro.njk" import govukLabel %}
+{%- from "panel/macro.njk" import govukPanel %}
+{%- from "phase-banner/macro.njk" import govukPhaseBanner %}
+{%- from "select/macro.njk" import govukSelect %}
+{%- from "skip-link/macro.njk" import govukSkipLink %}
+{%- from "table/macro.njk" import govukTable %}
+{%- from "tag/macro.njk" import govukTag %}
+{%- from "textarea/macro.njk" import govukTextarea %}
+{%- from "warning-text/macro.njk" import govukWarningText %}
+{%- from "checkboxes/macro.njk" import govukCheckboxes %}
+{%- from "radios/macro.njk" import govukRadios %}
+
+
+{%- from "msp-header/macro.njk" import mspHeader %}
+{%- from "msp-footer/macro.njk" import mspFooter %}
+{%- from "msp-timeline/macro.njk" import mspTimeline %}
+{%- from "msp-progress-bar/macro.njk" import mspProgressBar %}
+{%- from "msp-primary-navigation/macro.njk" import mspPrimaryNavigation %}
+{%- from "msp-sub-navigation/macro.njk" import mspSubNavigation %}
+{%- from "msp-banner/macro.njk" import mspBanner %}
+{%- from "msp-identity-bar/macro.njk" import mspIdentityBar %}
+{%- from "msp-menu/macro.njk" import mspMenu %}
+{%- from "msp-page-header-with-actions/macro.njk" import mspPageHeaderWithActions %}
+{%- from "msp-filter/macro.njk" import mspFilter %}
+{%- from "msp-search/macro.njk" import mspSearch %}
+{%- from "msp-pagination/macro.njk" import mspPagination %}
+{%- from "msp-badge/macro.njk" import mspBadge %}
+{%- from "msp-currency-input/macro.njk" import mspCurrencyInput %}
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>Frontend Ministerstva spravedlnosti</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b0c0c">
+
+    <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet"><![endif]-->
+    <!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" rel="stylesheet"><!--<![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="/public/javascripts/vendor/html5shiv.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+
+  <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    {%- block body %}{% endblock %}
+
+    {%- block scripts %}
+      {%- include "includes/scripts.html" %}
+      <script>
+        window.GOVUKFrontend.initAll()
+      </script>
+      {%- block pageScripts %}{% endblock %}
+    {%- endblock %}
+
+  </body>
+
+</html>

@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+
+  <h1 class="govuk-heading-l">Banner</h1>
+
+  {% set bannerHtml %}
+    <h2 class="govuk-heading-m">Název zprávy přijde sem</h2>
+    <p><a href="">Schovat</a></p>
+  {% endset %}
+
+  <h2 class="govuk-heading-m">Vlastní HTML</h2>
+
+  {{ mspBanner({
+    html: bannerHtml
+  }) }}
+
+  <h2 class="govuk-heading-m">Vlastní HTML s ikonou</h2>
+
+  {{ mspBanner({
+    type: 'information',
+    html: bannerHtml
+  }) }}
+
+  <h2 class="govuk-heading-m">Úspěch</h2>
+
+  {{ mspBanner({
+    type: 'success',
+    text: 'Úspešně jste přidali 1 otázku.',
+    iconFallbackText: 'Success'
+  }) }}
+
+  <h2 class="govuk-heading-m">Varování</h2>
+
+  {{ mspBanner({
+    type: 'warning',
+    text: 'Otázky nebyly odeslány – zkuste to znovu.',
+    iconFallbackText: 'Warning'
+  }) }}
+
+  <h2 class="govuk-heading-m">Informace</h2>
+
+  {{ mspBanner({
+    type: 'information',
+    text: 'Pro přidání komentáře vyberte text.',
+    iconFallbackText: 'information'
+  }) }}
+
+
+
+{% endblock %}
