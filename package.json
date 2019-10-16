@@ -1,7 +1,8 @@
 {
   "name": "@ministryofjusticecz/frontend",
-  "description": "Ministerstvo spravedlnosti Frontend",
+  "description": "Frontend Ministerstva spravedlnosti obsahuje kód, který potřebujete pro budování uživatelských rozhraní webových stránek a služeb Ministerstva spravedlnosti.",
   "main": "index.js",
+  "version": "0.0.1-alpha",
   "scripts": {
     "start": "gulp",
     "build:package": "node bin/check-nvmrc.js && gulp build:package"

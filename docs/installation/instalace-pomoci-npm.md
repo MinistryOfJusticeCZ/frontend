@@ -4,12 +4,12 @@
 
 Pro použítí Frontendu Ministerstva spravedlnosti pomocí NPM, musíte:
 
-1. Nainstalujte long-term support (LTS) version of
-   [Node.js](https://nodejs.org/en/), které obsahuje NPM. Minimální požadovaná verze Node je  4.2.0.
+1. Nainstalovat long-term support (LTS) verzi
+   [Node.js](https://nodejs.org/en/), která obsahuje NPM. Minimální požadovaná verze Node je  4.2.0.
 
    (Pro správu verzí Node doporučujeme použít [`nvm`](https://github.com/creationix/nvm).)
 
-2. Pokud ještě nemáte, vytvořte [soubor package.json](https://docs.npmjs.com/files/package.json). 
+2. Pokud ještě nemáte, vytvořit [soubor package.json](https://docs.npmjs.com/files/package.json). 
    Můžete vytvořit defaultní soubor `package.json` spuštěním `npm init` z rootu vaši aplikace.
 
 3. Pokud chcete použít Nunjucks macra Frontendu Ministerstva spravedlnosti, nainstalujte Nunjucks -
@@ -24,31 +24,31 @@ npm install nunjucks --save
 Pro nainstalovaní, spusťte:
 
 ```
-npm install --save @msp/frontend
+npm install --save @ministryofjusticecz/frontend
 ```
 
-Potom co nainstalujete Frontend Ministerstva spravedlnosti, zobrazí se package `@msp/frontend` ve složce `node_modules`.
+Potom co nainstalujete Frontend Ministerstva spravedlnosti, zobrazí se package `@ministryofjusticecz/frontend` ve složce `node_modules`.
 
 ## Import stylů
 
-Do vašeho projektu musíte naimportovat styly Frontendu Ministerstva spravedlnosti. Pokud chcete přepsat Frontend Ministerstva spravedlnosti vlastními styly, měli byste kód níže vložit před vaše vlastní Sass pravidla (nebo Sass importy) do vašeho projektu.
+Do vašeho projektu musíte naimportovat styly Frontendu Ministerstva spravedlnosti. Pokud chcete přepsat Frontend Ministerstva spravedlnosti vlastními styly, měli byste kód níže vložit před vaše vlastní Sass pravidla (nebo Sass importy).
 
 1. Pro import všech komponent, přidejte do vašeho Sass souboru následující:
 
   ```CSS
-  @import "node_modules/@msp/frontend/all";
+  @import "node_modules/@ministryofjusticecz/frontend/all";
   ```
 
 2. Pro import jednotlivých komponent (například tlačítko), přidejte do vašeho Sass souboru následující:
 
   ```CSS
-  @import "node_modules/@msp/frontend/components/button/button";
+  @import "node_modules/@ministryofjusticecz/frontend/components/button/button";
   ```
 
 ### Nepovinné: Řešení SCSS import paths
 
-Pokud si přejete ve vašem buildu vyřešit výše uvedené `@import` cesty (tak abyste se vyhli prefixování cest s `node_modules`), měli byste do vaši [Sass include paths](https://github.com/sass/node-sass#includepaths) přidat `node_modules`
-(Ruby, by měly být přidány do [assets
+Pokud si přejete ve vašem buildu vyřešit výše uvedené `@import` cesty (tak abyste se vyhli prefixování cest s `node_modules`), měli byste do vašich [Sass include paths](https://github.com/sass/node-sass#includepaths) přidat `node_modules`
+(Pro Ruby, by měly být přidány do [assets
 paths](http://guides.rubyonrails.org/asset_pipeline.html#search-paths)).
 
 Například, pokud váš projekt používá Gulp, přidali byste Sass include paths do vašeho Gulp konfiguračního souboru (například `gulpfile.js`) s
@@ -65,12 +65,12 @@ gulp.task('sass', function () {
 
 ```
 
-Pokud ve vašem projektu kompilujete Sass do CSS, vaše build tasky budou už něco podobného vkládat do tasku uvedeného nahoře - v tom případě, stačí pouze vložit přidat `includePaths` .
+Pokud ve vašem projektu kompilujete Sass do CSS, vaše build tasky budou už něco podobného vkládat do tasku uvedeného nahoře - v tom případě, stačí pouze vložit přidat `includePaths`.
 
 Po vyřešení import paths můžete importovat Frontend Ministerstva spravedlnosti za použití:
 
 ```CSS
-@import "@msp/frontend/components/button/button";
+@import "@ministryofjusticecz/frontend/components/button/button";
 ```
 
 ## Importování assetů
@@ -81,22 +81,22 @@ Pro import obrázků a fontů Frontendu Ministerstva spravedlnosti do vašeho pr
 
 ### Doporučené řešení
 
-Učiňte `/node_modules/@msp/frontend/assets` přístupnou vašemu projektu tím, že nastavíte routing requesty do vaši assety složky.
+Učiňte `/node_modules/@ministryofjusticecz/frontend/assets` přístupnou vašemu projektu tím, že routing requesty nastavíte do vaši assety složky.
 
 Například, pokud váš projekt používá [express.js](https://expressjs.com/), níže je ukázka kódu, který můžete přidat do vaši konfigurace:
 
 ```JS
-app.use('/assets', express.static(path.join(__dirname, '/node_modules/@msp/frontend/assets')))
+app.use('/assets', express.static(path.join(__dirname, '/node_modules/@ministryofjusticecz/frontend/assets')))
 ```
 ### Alternativní řešení
 
-Ručně zkopírujte obrázky a fonty z `/node_modules/@msp/frontend/assets` do veřejné (public) složky ve vašem projektu. Ideálně by mělo být kopírování souborů ve vašem projektu automatizovaný task nebo součást build pipeliny. Zajístíte tak, že assety Frontendu Ministerstva spravedlnosti zůstanou aktuální.
+Ručně zkopírujte obrázky a fonty z `/node_modules/@ministryofjusticecz/frontend/assets` do veřejné (public) složky ve vašem projektu. Ideálně by mělo být kopírování souborů ve vašem projektu automatizovaný task nebo součást build pipeliny. Zajístíte tak, že assety Frontendu Ministerstva spravedlnosti zůstanou aktuální.
 
 Defaultní cesty použity pro assety jsou `assets/images` a `assets/fonts`. **Nemusíte dělat tyto kroky, pokud vaše asset složky následují tuto strukturu.**
 
 Pro použití jiných asset paths, zároveň dokončete tyto kroky.
 
-1. Ve projektu nastavte `$govuk-assets-path`, `$govuk-images-path` a `$govuk-fonts-path` Sass soubory, aby ukazoval na relevantní složky (directories) ve vašem projektu (dojde k přepsání default hodnot nastavených v `/node_modules/@msp/frontend/settings/_assets.scss`). Ujistěte se, že toto uděláte v Sassu než importujete`@msp/frontend` do vašeho projetku - viz [Import stylů](#import-stylů).
+1. Ve projektu nastavte `$govuk-assets-path`, `$govuk-images-path` a `$govuk-fonts-path` Sass soubory, aby ukazoval na relevantní složky (directories) ve vašem projektu (dojde k přepsání default hodnot nastavených v `/node_modules/@ministryofjusticecz/frontend/settings/_assets.scss`). Ujistěte se, že toto uděláte v Sassu než importujete`@ministryofjusticecz/frontend` do vašeho projetku - viz [Import stylů](#import-stylů).
 
   Příklad 1:
 
@@ -104,17 +104,17 @@ Pro použití jiných asset paths, zároveň dokončete tyto kroky.
   // Include images from /application/assets/images and fonts from /application/assets/fonts
   $msp-assets-path: ‘/application/assets’;
 
-  @import “@msp/frontend/all”;
+  @import “@ministryofjusticecz/frontend/all”;
   ```
 
   Příklad 2:
 
   ``` SCSS
-  // Include images from /images/@msp/frontend and fonts from /fonts
-  $msp-images-path: “/images/@msp/frontend/”;
+  // Include images from /images/@ministryofjusticecz/frontend and fonts from /fonts
+  $msp-images-path: “/images/@ministryofjusticecz/frontend/”;
   $msp-fonts-path: “/fonts/”;
 
-  @import “@msp/frontend/all”;
+  @import “@ministryofjusticecz/frontend/all”;
   ```
 
 2. Nepovinné: Můžete přepsat helpery používané pro vygenerování url assetu, například, pokud používáte funkcionalitu sass-rails asset-pipeline. Toho dosáhnete nastavením `$msp-image-url-function` jménu funkci, které chcete používat. Pro více informací a příkladů se podívejte do `src/settings/_assets.scss`.
