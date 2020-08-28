@@ -2,7 +2,7 @@
   "name": "@ministryofjusticecz/frontend",
   "description": "Frontend Ministerstva spravedlnosti obsahuje kód, který potřebujete pro budování uživatelských rozhraní webových stránek a služeb Ministerstva spravedlnosti.",
   "main": "index.js",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-alpha",
   "scripts": {
     "start": "gulp",
     "build:package": "node bin/check-nvmrc.js && gulp build:package"
@@ -19,17 +19,17 @@
   "homepage": "https://github.com/ministryofjusticecz/frontend#readme",
   "dependencies": {
     "express": "^4.16.3",
-    "govuk-frontend": "^2.10.0",
+    "govuk-frontend": "^3.8.1",
     "gulp": "^3.9.1",
-    "gulp-cache": "^0.4.6",
     "gulp-autoprefixer": "^6.0.0",
-    "gulp-imagemin": "^3.3.0",
+    "gulp-cache": "^0.4.6",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
-    "gulp-nodemon": "^2.2.1",
-    "gulp-sass": "^4.0.1",
-    "moment": "^2.22.2",
-    "nunjucks": "^3.1.3",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-sass": "^4.1.0",
+    "moment": "^2.27.0",
+    "nunjucks": "^3.2.2",
     "require-dir": "^1.0.0",
     "run-sequence": "^2.2.1"
   },

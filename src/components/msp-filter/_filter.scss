@@ -4,13 +4,15 @@
 
 .msp-filter {
   background-color: govuk-colour("white");
-  box-shadow: inset 0 0 0 1px govuk-colour("grey-3");
-  @include govuk-focusable;
+  box-shadow: inset 0 0 0 1px govuk-colour("light-grey", $legacy: "govuk-colour("light-grey", $legacy: "grey-3")");
+  &:focus {
+    @include govuk-focused-text;
+  }
 }
 
 
 .msp-filter__header {
-  background-color: govuk-colour("grey-3");
+  background-color: govuk-colour("light-grey", $legacy: "govuk-colour("light-grey", $legacy: "grey-3")");
   font-size: 0; // Hide whitespace between elements
   padding: govuk-spacing(2) govuk-spacing(4);
   text-align: justify; // Trick to remove the need for floats
@@ -72,7 +74,7 @@
     }
 
     &:focus {
-      @include govuk-focusable;
+      @include govuk-focused-text;
     }
 
   }
@@ -89,7 +91,6 @@
 
 
 .msp-filter__close {
-  @include govuk-focusable;
   color: govuk-colour("black");
   cursor: pointer; // I know Adam won’t like this
   background-color: transparent;
@@ -126,8 +127,8 @@
 
 
 .msp-filter__selected {
-  background-color: govuk-colour("grey-4");
-  box-shadow: inset 0 0 0 1px govuk-colour("grey-3");
+  background-color: govuk-colour("light-grey", $legacy: "grey-4");
+  box-shadow: inset 0 0 0 1px govuk-colour("light-grey", $legacy: "govuk-colour("light-grey", $legacy: "grey-3")");
   padding: govuk-spacing(4);
 
   ul:last-of-type {
@@ -214,7 +215,7 @@
 
 
 .msp-filter__options {
-  box-shadow: inset 0 0 0 1px govuk-colour("grey-3");
+  box-shadow: inset 0 0 0 1px govuk-colour("light-grey", $legacy: "govuk-colour("light-grey", $legacy: "grey-3")");
   margin-top: -1px;
   padding: govuk-spacing(4);
 

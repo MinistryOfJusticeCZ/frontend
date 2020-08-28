@@ -33,6 +33,17 @@
 - Popis interní změny x
   ([PR #123456](https://github.com/msp/msp-frontend/pull/123456))
 
+## 0.0.2-alpha
+
+🔧 Opravy:
+
+- Nahrazeno govuk-focusable
+- Upraveno volání govuk-colour
+- Jazyk stránky změnen na "cs"
+
+🏠 Interní:
+
+- Upgrade k nejposlednější verzi govuk-frontend 3.8.1
 
 ## 0.0.1-alpha
 
